@@ -259,6 +259,11 @@ pg_line_is_parallel(pgLineObject *self, PyObject *const *args,
 }
 
 static PyObject *
+pg_line_as_circle(pgLineObject *self) {
+    return _pg_circle_subtype_new4();
+}
+
+static PyObject *
 pg_line_collideline(pgLineObject *self, PyObject *const *args,
                     Py_ssize_t nargs)
 {
@@ -508,6 +513,7 @@ static struct PyMethodDef pg_line_methods[] = {
     {"at", (PyCFunction)pg_line_at, METH_O, NULL},
     {"flip", (PyCFunction)pg_line_flip, METH_NOARGS, NULL},
     {"flip_ip", (PyCFunction)pg_line_flip_ip, METH_NOARGS, NULL},
+    {"as_circle", (PyCFunction)pg_line_as_circle, METH_NOARGS, NULL},
     {NULL, NULL, 0, NULL}};
 
 /* sequence functions */
